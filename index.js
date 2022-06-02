@@ -114,6 +114,6 @@ module.exports = class Moda11y {
 	 */
 	#generateModal( trigger ) {
 		let modalHTML = document.querySelector( '#' + trigger.dataset.moda11yTarget ).innerHTML;
-		return '<div class="moda11y" role="dialog" data-moda11y-active="' + trigger.dataset.moda11yTarget + '"><div class="moda11y__overlay"></div><div class="moda11y__modal"><button class="moda11y__close" type="button" data-moda11y-trigger="' + trigger.dataset.moda11yTarget + '">&#10005;</button> ' + modalHTML + '</div></div>';
+		return '<div class="moda11y" role="dialog" data-moda11y-active="' + trigger.dataset.moda11yTarget + '"><div class="moda11y__overlay"></div><div class="moda11y__modal"><button class="moda11y__close" type="button" data-moda11y-trigger="' + trigger.dataset.moda11yTarget + '"><span class="moda11y__close-icon">&#10005;</span></button> ' + modalHTML + '</div></div>';
 	}
 }
