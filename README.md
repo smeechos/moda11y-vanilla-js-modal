@@ -23,7 +23,7 @@ import Moda11y from "@smeechos/moda11y-vanilla-js-modal";
 
 3. Include base CSS:
 ```css
-@import "~@smeechos/moda11y-vanilla-js-modal/css/style.css";
+@import "~@smeechos/moda11y-vanilla-js-modal/dist/styles/moda11y-css.min.css";
 ```
 
 4. Initialize the class:
