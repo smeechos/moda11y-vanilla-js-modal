@@ -29,16 +29,17 @@
     }
 
     &__modal {
-        position: fixed;
-        left: 15%;
-        width: 70%;
-        top: 5vh;
-        max-height: 90vh;
         border: 1px solid #000;
         background: #fff;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 5vh;
+        max-height: 90vh;
+        margin: 0 auto;
         padding: 20px;
-        right: auto;
         overflow: auto;
+        width: calc(100% - 30px);
         z-index: 998;
     }
 
@@ -51,5 +52,12 @@
         right: 0;
         left: 0;
         z-index: 997;
+    }
+
+    @media screen and (min-width: 768px) {
+        &__modal {
+            max-width: 70%;
+            width: 100%;
+        }
     }
 }
