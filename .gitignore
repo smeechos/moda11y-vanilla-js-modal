@@ -5,3 +5,7 @@
 # IDE
 #####
 .idea/
+
+# Directories
+#############
+node_modules
