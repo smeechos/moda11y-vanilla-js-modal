@@ -1,7 +1,8 @@
 # moda11y-vanilla-js-modal
 ![GitHub](https://img.shields.io/github/license/smeechos/moda11y-vanilla-js-modal)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/smeechos/moda11y-vanilla-js-modal)
-![GitHub file size in bytes](https://img.shields.io/github/size/smeechos/moda11y-vanilla-js-modal/index.js)
+![GitHub JS file size in bytes](https://img.shields.io/github/size/smeechos/moda11y-vanilla-js-modal/index.js?label=JS%20File%20Size)
+![GitHub CSS file size in btyes](https://img.shields.io/github/size/smeechos/moda11y-vanilla-js-modal/dist/styles/moda11y-css.min.css?label=CSS%20File%20Size)
 
 Simple vanilla JS modal library based on [WAI-ARIA](https://www.w3.org/WAI/ARIA/apg/) guidelines, specifically
 as it relates to [dialogs / modals](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/).
