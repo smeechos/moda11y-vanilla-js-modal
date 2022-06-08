@@ -7,10 +7,10 @@ module.exports = class Moda11y {
 			'click',
 			'keydown',
 		];
-		this.#init();
+		this.init();
 	}
 
-	#init() {
+	init() {
 		let modalTriggers = document.querySelectorAll( '.moda11y-trigger' );
 
 		if ( null !== modalTriggers ) {
@@ -28,7 +28,7 @@ module.exports = class Moda11y {
 							this.body.classList.add( 'moda11y-no-scroll' );
 
 							// Append our modal to the end of the body.
-							this.body.insertAdjacentHTML( 'beforeend', this.#generateModal( ele ) );
+							this.body.insertAdjacentHTML( 'beforeend', this.generateModal( ele ) );
 
 							// Get the modal close button + set focus to it.
 							let modalClose = document.querySelector( '.moda11y__close' );
@@ -38,7 +38,7 @@ module.exports = class Moda11y {
 							modalClose.addEventListener(
 								'click',
 								function ( ev ) {
-									this.#closeModal( document.querySelector( '.moda11y' ) );
+									this.closeModal( document.querySelector( '.moda11y' ) );
 								}.bind( this )
 							);
 						}.bind( this )
@@ -60,7 +60,7 @@ module.exports = class Moda11y {
 
 									// Close any open modal is escape is pressed.
 									if ( 27 === e.keyCode ) {
-										this.#closeModal( modal );
+										this.closeModal( modal );
 									}
 
 									// Focus first or last element in modal when tabbing (depending on direction).
@@ -91,7 +91,7 @@ module.exports = class Moda11y {
 								let modal = document.querySelector( '.moda11y' );
 
 								if ( null !== modal && e.target.classList.contains( 'moda11y__overlay' ) ) {
-									this.#closeModal( modal );
+									this.closeModal( modal );
 								}
 							}
 						}.bind( this )
@@ -106,7 +106,7 @@ module.exports = class Moda11y {
 	 *
 	 * @param modal
 	 */
-	#closeModal( modal ) {
+	closeModal( modal ) {
 		modal.remove();
 		this.body.classList.remove( 'moda11y-no-scroll' );
 		this.previousFocus.focus();
@@ -118,7 +118,7 @@ module.exports = class Moda11y {
 	 * @param trigger
 	 * @returns {string}
 	 */
-	#generateModal( trigger ) {
+	generateModal( trigger ) {
 		let modalHTML = document.querySelector( '#' + trigger.dataset.moda11yTarget ).innerHTML;
 		return '<div class="moda11y" role="dialog" data-moda11y-active="' + trigger.dataset.moda11yTarget + '"><div class="moda11y__overlay"></div><div class="moda11y__modal"><button class="moda11y__close" type="button" data-moda11y-trigger="' + trigger.dataset.moda11yTarget + '"><span class="moda11y__close-icon">&#10005;</span></button> ' + modalHTML + '</div></div>';
 	}
