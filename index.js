@@ -77,6 +77,12 @@ module.exports = class Moda11y {
 											}
 										}
 									}
+
+									// Focus back to modal if tabbing outside of the modal.
+									if ( e.keyCode === 9 && modalFocusable.indexOf( e.target ) === -1 ) {
+										e.preventDefault();
+										modalFocusable[0].focus();
+									}
 								}
 							}
 
