@@ -29,7 +29,8 @@ import Moda11y from "@smeechos/moda11y-vanilla-js-modal";
 4. Initialize the class:
 
 ```javascript
-new Moda11y();
+let moda11y = new Moda11y();
+moda11y.init();
 ```
 
 ## Usage
@@ -52,13 +53,21 @@ Below is some sample markup for using the library:
 </div>
 ```
 
+#### Methods
+| Method      | Description | Use Case |
+| ----------- | ----------- | ----------- |
+| `init()`    | Initializes the library and sets all event listeners. | This is necessary to ensure the modal triggers have the event listeners setup to trigger the modal when clicked. |
+| `reinit()`  | Re-initializes the library and resets all event listeners. | AJAX is being used to manipulate the DOM, and new triggers are added to the page. Because they weren't present during original `init()`, we must setup event listeners for those _new_ elements. |
+
+
 ## How It Works
 
 Once a modal trigger has been clicked, the modal will be added to the page via JavaScript.
 
-As there is only ever a single modal at a time, and it is being generated on the fly, you need to
+Since there is only ever a single modal at a time, as it is being generated on the fly, you need to
 ensure that the `moda11y-modal-content` element is present, and its `id` matches the `data-moda11y-target`
-attribute on the button trigger.
+attribute on the button trigger. This is how the library knows what content to place into the modal once
+it is generated.
 
 The modal's content will contain all the HTML from within the `moda11y-modal-content`.
 
