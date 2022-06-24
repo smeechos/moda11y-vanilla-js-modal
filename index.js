@@ -113,7 +113,6 @@ module.exports = class Moda11y {
 	 */
 	initGlobalEventListeners( e ) {
 		if ( 'keydown' === e.type ) {
-			console.log( 'keydown' );
 			let modal = document.querySelector( '.moda11y' );
 
 			if ( null !== modal ) {
@@ -149,7 +148,6 @@ module.exports = class Moda11y {
 
 		// Close modal if click outside of modal.
 		if ( 'click' === e.type ) {
-			console.log( 'click' );
 			let modal = document.querySelector( '.moda11y' );
 
 			if ( null !== modal && e.target.classList.contains( 'moda11y__overlay' ) ) {
