@@ -1,4 +1,3 @@
-<h1>test</h1>
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/smeechos/moda11y-vanilla-js-modal/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
