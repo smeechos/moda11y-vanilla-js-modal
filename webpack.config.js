@@ -15,7 +15,7 @@ const optimize = process.argv.indexOf( '--watch' ) === -1;
 const config = {
   mode: 'production',
   entry: {
-    'index': './index.js',
+    'script': './demo/script.js',
     'moda11y-css': './scss/main.scss',
   },
   optimization: {
