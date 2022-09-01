@@ -7,6 +7,8 @@
 Simple vanilla JS modal library based on [WAI-ARIA](https://www.w3.org/WAI/ARIA/apg/) guidelines, specifically
 as it relates to [dialogs / modals](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/).
 
+Please find the demo [here](https://smeechos.github.io/moda11y-vanilla-js-modal/).
+
 ## Installation
 
 1. Package can be installed via [npm](https://www.npmjs.com/package/@smeechos/moda11y-vanilla-js-modal):

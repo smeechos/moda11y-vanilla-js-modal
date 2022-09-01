@@ -1,6 +1,6 @@
 {
   "name": "@smeechos/moda11y-vanilla-js-modal",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Simple vanilla JS modal library based on WAI-ARIA guidelines.",
   "main": "index.js",
   "engines" : {
