@@ -84,6 +84,7 @@ module.exports = class Moda11y {
 	 */
 	initModalTriggerEventListener( e ) {
 		let ele = e.target.classList.contains( 'moda11y-trigger' ) ? e.target : e.target.closest( '.moda11y-trigger' );
+		const event = new Event('moda11y-shown');
 
 		e.preventDefault();
 
@@ -99,6 +100,9 @@ module.exports = class Moda11y {
 		// Get the modal close button + set focus to it.
 		let modalClose = document.querySelector( '.moda11y__close' );
 		modalClose.focus();
+
+		// Trigger "shown" event.
+		ele.dispatchEvent(event);
 
 		// Add event listener to handling closing the modal.
 		modalClose.addEventListener( 'click', this.modalCloseHandler );
@@ -161,9 +165,13 @@ module.exports = class Moda11y {
 	 */
 	closeModal() {
 		let modal = document.querySelector( '.moda11y' );
+		const event = new Event('moda11y-remove');
+
 		if ( null !== modal ) {
 			modal.remove();
 			this.body.classList.remove( 'moda11y-no-scroll' );
+			// Trigger "remove event.
+			this.previousFocus.dispatchEvent(event);
 			this.previousFocus.focus();
 		}
 	}

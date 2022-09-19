@@ -61,6 +61,12 @@ Below is some sample markup for using the library:
 | `init()`    | Initializes the library and sets all event listeners. | This is necessary to ensure the modal triggers have the event listeners setup to trigger the modal when clicked. |
 | `reinit()`  | Re-initializes the library and resets all event listeners. | AJAX is being used to manipulate the DOM, and new triggers are added to the page. Because they weren't present during original `init()`, we must setup event listeners for those _new_ elements. |
 
+#### Events
+| Method      | Element | Description |
+| ----------- | ----------- | ----------- |
+| `moda11y-shown` | `moda11y-trigger` | Fires once the modal is shown. |
+| `moda11y-shown` | `moda11y-trigger` | Fires when the modal is removed (right before focus is returned to trigger). |
+
 
 ## How It Works
 
