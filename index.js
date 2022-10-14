@@ -4,6 +4,7 @@
  * @type {Moda11y}
  * @package moda11y-vanilla-js-modal
  */
+
 module.exports = class Moda11y {
 	/**
 	 * Constructor.
@@ -83,8 +84,8 @@ module.exports = class Moda11y {
 	 * @param e
 	 */
 	initModalTriggerEventListener( e ) {
-		let ele = e.target.classList.contains( 'moda11y-trigger' ) ? e.target : e.target.closest( '.moda11y-trigger' );
-		const event = new Event('moda11y-shown');
+		let ele     = e.target.classList.contains( 'moda11y-trigger' ) ? e.target : e.target.closest( '.moda11y-trigger' );
+		const event = new Event( 'moda11y-shown' );
 
 		e.preventDefault();
 
@@ -102,7 +103,7 @@ module.exports = class Moda11y {
 		modalClose.focus();
 
 		// Trigger "shown" event.
-		ele.dispatchEvent(event);
+		ele.dispatchEvent( event );
 
 		// Add event listener to handling closing the modal.
 		modalClose.addEventListener( 'click', this.modalCloseHandler );
@@ -164,14 +165,14 @@ module.exports = class Moda11y {
 	 * Closes a given modal.
 	 */
 	closeModal() {
-		let modal = document.querySelector( '.moda11y' );
-		const event = new Event('moda11y-remove');
+		let modal   = document.querySelector( '.moda11y' );
+		const event = new Event( 'moda11y-remove' );
 
 		if ( null !== modal ) {
 			modal.remove();
 			this.body.classList.remove( 'moda11y-no-scroll' );
 			// Trigger "remove event.
-			this.previousFocus.dispatchEvent(event);
+			this.previousFocus.dispatchEvent( event );
 			this.previousFocus.focus();
 		}
 	}
@@ -188,10 +189,16 @@ module.exports = class Moda11y {
 			modalOverlayDiv = document.createElement( 'div' ),
 			modalDiv        = document.createElement( 'div' ),
 			modalClose      = document.createElement( 'button' ),
-			modalCloseSpan  = document.createElement( 'span' );
+			modalCloseSpan  = document.createElement( 'span' ),
+			modalClasses    = 'moda11y';
+
+		// Add user classes, if supplied.
+		if ( trigger.dataset.moda11yClasses ) {
+			modalClasses += ' ' + trigger.dataset.moda11yClasses;
+		}
 
 		// Setup modal wrapper div.
-		modalWrapperDiv.setAttribute( 'class', 'moda11y' );
+		modalWrapperDiv.setAttribute( 'class', modalClasses );
 		modalWrapperDiv.setAttribute( 'role', 'dialog' );
 		modalWrapperDiv.setAttribute( 'data-moda11y-active', trigger.dataset.moda11yTarget );
 

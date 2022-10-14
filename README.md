@@ -9,6 +9,16 @@ as it relates to [dialogs / modals](https://www.w3.org/WAI/ARIA/apg/patterns/dia
 
 Please find the demo [here](https://smeechos.github.io/moda11y-vanilla-js-modal/).
 
+Jump To:
+- [Installation](#installation)
+- [Usage](#usage)
+- [How It Works](#how-it-works)
+- [Events](#events)
+- [Methods](#methods)
+- [Options](#options)
+
+---
+
 ## Installation
 
 1. Package can be installed via [npm](https://www.npmjs.com/package/@smeechos/moda11y-vanilla-js-modal):
@@ -55,19 +65,6 @@ Below is some sample markup for using the library:
 </div>
 ```
 
-#### Methods
-| Method      | Description | Use Case |
-| ----------- | ----------- | ----------- |
-| `init()`    | Initializes the library and sets all event listeners. | This is necessary to ensure the modal triggers have the event listeners setup to trigger the modal when clicked. |
-| `reinit()`  | Re-initializes the library and resets all event listeners. | AJAX is being used to manipulate the DOM, and new triggers are added to the page. Because they weren't present during original `init()`, we must setup event listeners for those _new_ elements. |
-
-#### Events
-| Method      | Element | Description |
-| ----------- | ----------- | ----------- |
-| `moda11y-shown` | `moda11y-trigger` | Fires once the modal is shown. |
-| `moda11y-shown` | `moda11y-trigger` | Fires when the modal is removed (right before focus is returned to trigger). |
-
-
 ## How It Works
 
 Once a modal trigger has been clicked, the modal will be added to the page via JavaScript.
@@ -79,3 +76,32 @@ it is generated.
 
 The modal's content will contain all the HTML from within the `moda11y-modal-content`.
 
+## Events
+| Method      | Element | Description |
+| ----------- | ----------- | ----------- |
+| `moda11y-shown` | `moda11y-trigger` | Fires once the modal is shown. |
+| `moda11y-shown` | `moda11y-trigger` | Fires when the modal is removed (right before focus is returned to trigger). |
+
+## Methods
+| Method      | Description | Use Case |
+| ----------- | ----------- | ----------- |
+| `init()`    | Initializes the library and sets all event listeners. | This is necessary to ensure the modal triggers have the event listeners setup to trigger the modal when clicked. |
+| `reinit()`  | Re-initializes the library and resets all event listeners. | AJAX is being used to manipulate the DOM, and new triggers are added to the page. Because they weren't present during original `init()`, we must setup event listeners for those _new_ elements. |
+
+## Options
+
+> The following options are to be set on the modal trigger button as data attributes.
+
+`data-moda11y-classes`
+
+Adding this attribute to the modal trigger button will ensure the provided classes are added to the modal
+when it is created.
+
+```html
+<button class="moda11y-trigger"
+        data-moda11y-target="moda11y-modal-1"
+        data-moda11y-classes="className1 className2"
+        aria-haspopup="dialog">
+    Modal Trigger
+</button>
+```
